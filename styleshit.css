@@ -19,6 +19,7 @@ progress {
   height: 42px;
   border-radius: 9px;
   width: 100%;
+  margin: 10px;
 }
 div.site-content {
     background-color: #00f;
@@ -33,5 +34,5 @@ div.site-content {
 }
 
 p #paybox {
-  
+
 }
