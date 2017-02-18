@@ -1,0 +1,25 @@
+div.rewards{
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    }
+
+div.grid{
+    background-color: #fff;
+}
+
+header{
+    background-color: #d2d2d2;
+    padding: 20px;
+}
+
+progress {
+  background-color: #f3f3f3;
+  position: inherit;
+  border: 0;
+  height: 42px;
+  border-radius: 9px;
+  width: 100%;
+}
+div.site-content {
+    background-color: #00f;
+}
