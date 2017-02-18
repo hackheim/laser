@@ -16,13 +16,87 @@
 	<link rel="stylesheet" href="styleshit.css">
 	<link rel="stylesheet" href="/lib/w3.css">
 
+	<script>
+		var cash = 30000;
+		var kr = cash.toString() + ",- kr";
+		var kinalaser = 20000;
+		var hseries = 50000;
+		var muse = 60000;
+
+		var kinapercent = 0;
+		var kinapercentgraph = 0;
+
+		var hseriespercent = 0
+		var hseriespercentgraph = 0;
+
+		var musepercent = 0;
+		var musepercentgraph = 0;
+
+		kinapercent = ((cash/kinalaser)*100).toFixed(0);
+		if (kinapercent > 100){
+			kinapercentgraph = 100;
+		}
+
+		else{
+			kinapercentgraph = kinapercent;
+		}
+
+		hseriespercent = ((cash/hseries)*100).toFixed(0);
+		if (hseriespercent > 100){
+			hseriespercentgraph = 100;
+		}
+		else{
+			hseriespercentgraph = hseriespercent;
+		}
+
+		musepercent = ((cash/muse)*100).toFixed(0);
+		if (musepercent > 100){
+			musepercentgraph = 100;
+		}
+		else{
+			musepercentgraph = musepercent;
+		}
+
+		var tot = "totalProgressBar";
+
+		function graph(){
+
+		move('totalProgressBar', musepercentgraph)
+		move('totalProgressBar2', musepercentgraph)
+		move('kinaProgressBar', kinapercentgraph)
+		move('hseriesProgressBar', hseriespercentgraph)
+		move('museProgressBar', musepercentgraph)
+
+		function move(itID, perc) {
+		  var elem = document.getElementById(itID);
+		  var width = 1;
+		  var id = setInterval(frame, 10);
+		  function frame() {
+		    if (width >= perc) {
+		      clearInterval(id);
+		    } else {
+		      width++;
+		      elem.style.width = width + '%';
+		    }
+		  }
+		}
+}
+
+		/*function graph(){
+			document.getElementById("totalProgressBar").style.width = 10 + '%';
+		}*/
+
+		//$('.progress-bar').css('width', 66'%').attr('aria-valuenow', 66);
+
+	</script>
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
-<body>
+<body onload="graph()">
 	<div id="site-container" class="grid">
 
 		<header class="row">
@@ -34,25 +108,24 @@
 			<div class="row">
 
 				<div class="c8">
-					<br>
+
 
 				<h3>Project Funding:</h3>
 
 				<div class="progress">
-				  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-				  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:33%">
-				    26.570,- kr (Kinalaser)
-				  </div>
+					<div id="totalProgressBar" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+					<script>document.write(kr);</script>
+					</div>
 				</div>
 
-					<p style="text-align: center;"><i>vi har nådd 33% av målet mot en FS Muse og har råd til en "kinalaser"</i></p>
+				<p style="text-align: center;"><i>vi har nådd <script>document.write(musepercent)</script>% av målet mot en FS Muse og har råd til en "kinalaser"</i></p>
 
 
 				<h2>Hackere og makere i Trondheim trenger å ha enkel tilgang på en laserkutter</h2>
 
 				<b>Om du ikke orker å lese masse tekst, her har du en kjapp oppsummering:</b>
 
-				<p><i>Vi har <b><u>26.750,- kr</u></b> på konto, vi har lyst til å skaffe oss en laserkutter og kjører kronerulling, penger du spytter inn i laserkutter får du tilbake i tid til å bruke på laserkutteren, innskudd kan gjøres på kontonr: <i><b>4202.43.63966</b></i>. Alternativt kan du bruke VIPPS, ved å sende penger til <i><b>87210</b></i>. Legg gjerne igjen en kommentar på facebook når du har betalt!</i></p><br>
+				<p><i>Vi har <b><u>26.750,- kr</u></b> på konto fra før av, vi har lyst til å skaffe oss en laserkutter og kjører kronerulling, penger du spytter inn i laserkutter får du tilbake i tid til å bruke på laserkutteren, innskudd kan gjøres på kontonr: <i><b>4202.43.63966</b></i>. Alternativt kan du bruke VIPPS, ved å sende penger til <i><b>87210</b></i>. Legg gjerne igjen en kommentar på facebook når du har betalt!</i></p><br>
 
 				<iframe width="720" height="405" src="https://www.youtube.com/embed/efY4zTr_hiY" frameborder="0" allowfullscreen></iframe><br>
 
@@ -60,7 +133,7 @@
 
 				<p><i>Tilbake i “brakketia” ble det kjørt en kronerulling for å skaffe en laserkutter, kronene står i dag på konto og rentes, det gir dårlig avkastning i valutta og moro.</i></p>
 
-				<p>Per i dag har vi <b><u>26.750,- kr</u></b> laserfondet, per dags dato har vi råd til en “kinalaser” a’la den Bitraf i Oslo og Runar hos oss har, ut ifra det vi har hørt av erfaringer fra andre fungerer de “greit” men reservedeler og support er langt unna på de fleste måter og det andre har av førstehånds erfaring med disse er at det er en del knot med å holde de i drift.</p>
+				<p>Fra før av har vi <b><u>26.750,- kr</u></b> i laserfondet, per dags dato har vi råd til en “kinalaser” a’la den Bitraf i Oslo og Runar hos oss har, ut ifra det vi har hørt av erfaringer fra andre fungerer de “greit” men reservedeler og support er langt unna på de fleste måter og det andre har av førstehånds erfaring med disse er at det er en del knot med å holde de i drift.</p>
 
 				<p><b>Så alternativ 1 er å kjøpe en “kinalaser”, noe vi egentlig kan gjøre i dag.</b></p>
 
@@ -73,13 +146,12 @@
 				<h1 style="text-align: center; font-size: 400%; text-decoration: underline;"><b>Finansiering</b></h1><br>
 
 				<div class="progress">
-				  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-				  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:33%">
-				    26.570,- kr (Kinalaser)
-				  </div>
+					<div id="totalProgressBar2" class="progress-bar progress-bar-success progress-bar-striped totalProgressBar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+					<script>document.write(kr);</script>
+					</div>
 				</div>
 
-				<p style="text-align: center;"><i>vi har nådd 33% av målet mot en FS Muse og har råd til en "kinalaser"</i></p>
+				<p style="text-align: center;"><i>vi har nådd <script>document.write(musepercent)</script>% av målet mot en FS Muse og har råd til en "kinalaser"</i></p>
 
 				<p style="text-align: center;	">Ønsker du å bidra? sett inn penger på kontonr: <i><b>4202.43.63966</b></i> eller vipps til nummer: <i><b>87210</b></i></p>.
 
@@ -87,6 +159,13 @@
 
 					<h2>“Kinalaser”</h2>
 					<img src="img/kina.jpeg"/><br>
+
+					<div class="progress">
+						<div id="kinaProgressBar" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+							<script>document.write(kr);</script> (<script>document.write(kinapercent);</script>% finansiert)
+						</div>
+					</div>
 
 					<b>Specs:</b>
 					<ul>
@@ -118,6 +197,15 @@
 					<img src="img/Hobby_Series.png"/>
 					<br>
 
+					<div class="progress">
+						<div id="hseriesProgressBar" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+							<script>document.write(kr);</script> (<script>document.write(hseriespercent);</script>% finansiert)
+						</div>
+					</div>
+
+					<p style="text-align: center;"><i>vi har nådd 53.5% av målet mot en FS H-Series</i></p>
+
 					<b>Specs:</b>
 					<ul>
 						<li>45W</li>
@@ -144,6 +232,15 @@
 
 				<h3>Full spectrum Muse</h3><!-- https://fslaser.com/Muse-->
 				<img src="img/muse.png"/>
+
+				<div class="progress">
+					<div id="museProgressBar" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+					aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+						<script>document.write(kr);</script> (<script>document.write(musepercent);</script>% finansiert)
+					</div>
+				</div>
+
+				<p style="text-align: center;"><i>vi har nådd <script>document.write(musepercent)</script>% av målet mot en FS Muse</i></p>
 
 				<b>Specs:</b>
 				<ul>
@@ -194,11 +291,7 @@
 		</div>
 
 		<footer class="row">
-
-			<div class="c12"><br><br><br><p style="text-align: center; color: #949494;">SparkStartr - Another brilliant Hackheim creation</p>
-			</div>
-
-
+			<div class="c12"><br><br><br><p style="text-align: center; color: #949494;">SparkStartr - Another brilliant Hackheim creation</p></div>
 		</footer>
 	</div>
 </body>
